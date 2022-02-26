@@ -1,0 +1,38 @@
+class TreeNode{
+	int val;
+	TreeNode left;
+	TreeNode right;
+	TreeNode(){}
+	TreeNode(int v) { this.val = v; }
+	TreeNode(int v){
+		this.val = v;
+		this.left = left;
+		this.right = right;
+	}
+}
+
+class Solution{
+	public List<Integer> inorderTraversal(TreeNode root){
+		List<Integer> l = new ArrayList<>();
+        	Stack<TreeNode> st = new Stack<>();
+        	
+        	TreeNode node = root;
+        	
+        	while(true){
+	            	if(node != null){
+	                st.push(node);
+        	        node = node.left;
+            	}
+            	else{
+                	if(st.isEmpty()){
+	                    break;
+        	        }
+	                node = st.pop();
+        	        l.add(node.val);
+	                node = node.right;
+        	    }
+	        }
+	        return l;
+	}
+}
+
