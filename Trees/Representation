@@ -1,0 +1,18 @@
+											1
+										/		\
+								 2 				 3
+							 / 	 \ 		 / 	 \
+							4			5   6	  	7
+							
+
+class TreeNode{
+	int data;
+	TreeNode left;
+	TreeNode right;
+	
+	public TreeNode(int d){
+		this.data = d;
+		this.left = left;
+		this.right = right;
+	}
+}
