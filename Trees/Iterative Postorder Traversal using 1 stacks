@@ -1,0 +1,46 @@
+class TreeNode{
+	int val;
+	TreeNode left;
+	TreeNode right;
+	TreeNode(){}
+	TreeNode(int v) { this.val = v; }
+	TreeNode(int v){
+		this.val = v;
+		this.left = left;
+		this.right = right;
+	}
+}
+
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        Stack<TreeNode> st = new Stack<>();
+        
+        List<Integer> l = new ArrayList<>();
+        
+        if(root == null)
+            return l;
+        
+        TreeNode node = root;
+        
+        while(node != null || !st.isEmpty()){
+            if(node != null){
+                st.push(node);
+                node = node.left;
+            }
+            else{
+                TreeNode temp = st.peek().right;
+                if(temp == null){
+                    temp = st.pop();
+                    l.add(temp.val);
+                    while(!st.isEmpty() && temp == st.peek().right){
+                        temp = st.pop();
+                        l.add(temp.val);
+                    }
+                }
+                else
+                    node = temp;
+            }
+        }
+        return l;
+    }
+}
