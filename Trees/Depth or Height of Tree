@@ -1,0 +1,11 @@
+class Solution{
+	public int Height(TreeNode root){
+		if(root == null)
+			return 0;
+		
+		int L = Height(root.left);
+		int R = Height(root.right);
+		
+		return Math.max(L,R) +1;
+	}
+}
