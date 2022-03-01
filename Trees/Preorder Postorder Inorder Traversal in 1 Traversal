@@ -1,0 +1,57 @@
+class TreeNode{
+	int val;
+	TreeNode left;
+	TreeNode right;
+	TreeNode(){}
+	TreeNode(int v) { this.val = v; }
+	TreeNode(int v){
+		this.val = v;
+		this.left = left;
+		this.right = right;
+	}
+}
+
+class Pair{
+	int num;
+	TreeNode node;
+	Pair(TreeNode node, int n){
+		this.node = node;
+		this.num = n;
+	}
+}
+
+class Solution{
+	public void Traversal(TreeNode root){
+		List<Integer> in = new ArrayList<>();
+		List<Integer> pre = new ArrayList<>();
+		List<Integer> post = new ArrayList<>();
+		Stack<Pair> st = new Stack<>();
+		
+		st.push(Pair(root,1));
+		
+		while(!st.isEmpty()){
+			Pair it = st.pop();
+			if(it.num == 1){
+				pre.add(it.val);
+				it.num++;
+				st.push(it);
+				
+				if(it.node.left != null)
+					st.push(new Pair(it.node.left, 1);
+			}
+			else if(it.num == 2){
+				in.add(it.val);
+				it.num++;
+				st.push(it);
+				
+				if(it.node.right != null)
+					st.push(new Pair(it.node.right, 1);
+			}
+			else{
+				post.add(it.val);
+			}
+		}
+		
+		
+	}
+}
