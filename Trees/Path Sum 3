@@ -1,0 +1,23 @@
+class Solution {
+    int count = 0;
+    public int pathSum(TreeNode root, int target) {
+        if(root == null)
+            return 0;
+        solve(root, target, 0);
+        pathSum(root.left, target);
+        pathSum(root.right, target);
+        
+        return count;
+    }
+    public void solve(TreeNode root, int t, int sum){
+        if(root == null)
+            return;
+        
+        sum+= root.val;
+        
+        if(t == sum)
+            count++;
+        solve(root.left, t, sum);
+        solve(root.right, t, sum);
+    }
+}
